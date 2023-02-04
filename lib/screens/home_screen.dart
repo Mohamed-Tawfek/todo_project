@@ -1,11 +1,13 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
+ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:intl/intl.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart'as MBS;
 import 'package:todo_app/cubit/cubit.dart';
 import 'package:todo_app/screens/undone_screen.dart';
 import 'package:todo_app/states/states.dart';
@@ -70,56 +72,56 @@ class _HomeScreenState extends State<HomeScreen> {
                     tabs: <Widget>[
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
+                        children:   [
                           Icon(Icons.message),
                           Text(
                             'All',
                             maxLines: 1,
-                            style: TextStyle(fontSize: 17),
+                            style: TextStyle(fontSize: MediaQuery.of(context).size.width*0.025),
                           ),
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.error_outline_outlined),
+                        children:   [
+                          const Icon(Icons.error_outline_outlined),
                           Text(
                             'UnDone',
                             maxLines: 1,
-                            style: TextStyle(fontSize: 17),
+                            style: TextStyle(fontSize: MediaQuery.of(context).size.width*0.022),
                           ),
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.done),
+                        children:   [
+                          const Icon(Icons.done),
                           Text(
                             'Done',
                             maxLines: 1,
-                            style: TextStyle(fontSize: 17),
+                            style: TextStyle(fontSize: MediaQuery.of(context).size.width*0.025),
                           ),
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.watch_later_outlined),
+                        children:   [
+                          const Icon(Icons.watch_later_outlined),
                           Text(
                             'Before',
                             maxLines: 1,
-                            style: TextStyle(fontSize: 17),
+                            style: TextStyle(fontSize:MediaQuery.of(context).size.width*0.025),
                           ),
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.alarm),
+                        children:   [
+                          const Icon(Icons.alarm),
                           Text(
                             'After',
                             maxLines: 1,
-                            style: TextStyle(fontSize: 17),
+                            style: TextStyle(fontSize: MediaQuery.of(context).size.width*0.025),
                           ),
                         ],
                       ),
@@ -135,14 +137,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     AfterScreen(),
                   ],
                 ),
-                floatingActionButton: FloatingActionButton(
+                floatingActionButton: FloatingActionButton.small(
                   backgroundColor: Colors.cyan,
                   child: const Icon(
                     Icons.add,
                     color: Colors.black,
                   ),
                   onPressed: () {
-                    showMaterialModalBottomSheet(
+                    MBS.showMaterialModalBottomSheet(
                         context: context,
                         builder: (context2) {
                           return customBottomSheet(

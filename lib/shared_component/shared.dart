@@ -14,7 +14,7 @@ Widget buildListOfTasks(context, {required List tasks, bool? isDone}) {
             model: tasks[index], index: index, context: context, isDone: isDone),
         separatorBuilder: (context, index) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Container(
+              child: SizedBox(
                 height: 1,
                 width: MediaQuery.of(context).size.width,
               ),
@@ -136,11 +136,15 @@ Widget buildTaskItem(
                   children: [
                     Text(
                       ' ${model.formattedDate}',
-                      style: const TextStyle(fontSize: 20),
+                      style:   TextStyle(fontSize: MediaQuery.of(context).size.width*0.04,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     Text(
                       ' ${model.time}',
-                      style: const TextStyle(fontSize: 20),
+                      style:   TextStyle(fontSize: MediaQuery.of(context).size.width*0.04,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ],
                 )
